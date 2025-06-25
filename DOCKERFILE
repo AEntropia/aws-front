@@ -1,4 +1,4 @@
-# Use nginx para servir arquivos estáticos
+# Use nginx para servir arquivos estático
 FROM nginx:alpine
 
 # Remove a configuração padrão do nginx
