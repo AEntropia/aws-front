@@ -34,6 +34,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
+        file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:latest
         platforms: linux/amd64,linux/arm64
@@ -44,6 +45,7 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
+        port: 22
         script: |
           # Stop and remove existing container if exists
           docker stop frontend-container || true
